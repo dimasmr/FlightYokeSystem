@@ -9,7 +9,7 @@ Necessary files to be in your folder (where your .slx present, or the referenced
   2. YokeSystem.cpp the function definition file: this file
   3. Your .cpp impelementation file (put it in Source Files)
 
-HOW TO COMPILE IN VISUAL STUDIO 
+**HOW TO COMPILE IN VISUAL STUDIO** <br/>
 Include the YokeSystem.h in the header files (project tree) and in your folder.
 When something goes wrong, you can manually set everything in the project properties.
 1. In the C/C++ -> General -> Additional Include Directories, add the "Include" folder of the DirectX SDK.
@@ -18,7 +18,7 @@ When something goes wrong, you can manually set everything in the project proper
    DirectX SDK (find it in your DirectX SDK installation directory).
 3. In the Linker -> Input -> Additional Dependencies, write dinput8.lib; dxguid.lib, add.
 
-HOW TO COMPILE (FOR MATLAB SIMULINK)
+**HOW TO COMPILE (FOR MATLAB SIMULINK)**
 1. You need C++ compiler available in your system. 
 2. Be sure to set the compiler appropriately for C++, use "mex -setup" and choose accordingly. 
 3. Compile in Matlab with "mex YokeSystem_SFun.cpp". 
