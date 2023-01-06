@@ -1,5 +1,5 @@
 # FlightYokeSystem
-Logitech/Saitek Flight Yoke System joystick interface using SDL2 API in Linux. **This requires SDL API in Linux. For Windows, see the main branch of this repository. No Simulink/CMEX S-Function implementation**.
+Logitech/Saitek Flight Yoke System joystick interface using SDL2 API in Linux. **This requires SDL API in Linux. For Windows, see the main branch of this repository. This linux branch has no Simulink/CMEX S-Function implementation**.
 Developed on the basis of the samples shown in https://github.com/meleu/jstest-sdl.
 
 
