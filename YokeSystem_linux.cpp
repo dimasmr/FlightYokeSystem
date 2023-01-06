@@ -228,6 +228,9 @@ int Yoke_linux64::povdeg() {
     int tmpA = state.hats[0];
 
     switch (tmpA) {
+        case 0:
+            tmpA = -1000;
+            break;
         case 1:
             tmpA = 0;
             break;
