@@ -1,28 +1,34 @@
 # FlightYokeSystem
-Logitech/Saitek Flight Yoke System joystick interface (C++, Simulink), using DirectX API (DirectInput and Direct Output). This requires DirectX.
-Developed on the basis of the samples shown in https://github.com/walbourn/directx-sdk-samples/tree/main/DirectInput/Joystick.
+Logitech/Saitek Flight Yoke System joystick interface using SDL2 API in Linux. **This requires SDL API in Linux. For Windows, see the main branch of this repository. No Simulink/CMEX S-Function implementation**.
+Developed on the basis of the samples shown in https://github.com/meleu/jstest-sdl.
 
-Make sure you have installed DirectX SDK https://www.microsoft.com/en-us/download/details.aspx?id=6812. This SDK providess the necessary headers like dinput.h and libraries like dinput8.lib, dxguid.lib.
 
-Necessary files to be in your folder (where your .slx present, or the referenced path):
-  1. YokeSystem.h the header file
-  2. YokeSystem.cpp the function definition file: this file
-  3. Your .cpp impelementation file (put it in Source Files)
+Make sure you have installed SDL or SDL2 API https://wiki.libsdl.org/SDL2/Installation. This provides all the necessary headers like SDL.h and its relevant dependency files. You can install via sudo apt: ``` sudo apt-get install libsdl2-dev ```.
 
-**HOW TO COMPILE IN VISUAL STUDIO** <br/>
-Include the YokeSystem.h in the header files (project tree) and in your folder.
-When something goes wrong, you can manually set everything in the project properties.
-1. In the C/C++ -> General -> Additional Include Directories, add the "Include" folder of the DirectX SDK.
-   (Find the folder in your DirectX SDK installation directory).
-2. In the Linker -> General -> Additional Library Directories, add the "Lib/x64" (if win64) of the
-   DirectX SDK (find it in your DirectX SDK installation directory).
-3. In the Linker -> Input -> Additional Dependencies, write dinput8.lib; dxguid.lib, add.
+Or manually: </br>
+``` 
+git clone https://github.com/libsdl-org/SDL.git -b SDL2
+cd SDL
+mkdir build
+cd build
+../configure
+make
+sudo make install
+```
+Make sure you have installed gcc C++ compiler in your system / Visual Studio Code.
 
-**HOW TO COMPILE (FOR MATLAB SIMULINK)**
-1. You need C++ compiler available in your system. 
-2. Be sure to set the compiler appropriately for C++, use "mex -setup" and choose accordingly. 
-3. Compile in Matlab with "mex YokeSystem_SFun.cpp". 
-4. This gives you a mexw64 file (Matlab executable file) in the folder.
+Necessary files to be in your folder (or the referenced path):
+  1. YokeSystem_linux.h the header file
+  2. YokeSystem_linux.cpp the function definition file
+  3. Your .cpp impelementation file
 
-Open the Simulink file YokeSystem.slx and see more.
+**HOW TO COMPILE IN VISUAL STUDIO CODE** </br> 
+If you start fresh or tasks.json in .vscode directory is not present. Do the following:
+  1. Ctrl+Shitf+D -> Run and Debug. Make sure when you run/debug, choose gcc compiler. You may have errors regarding ```"-fdiagnostics-color=always"``` and unreferenced SDL_Init etc. Abort.
+  2. Now the tasks.json file exists. Open it. In the ```"args:"``` field, delete the ```"-fdiagnostics-color=always"```,
+     and add the following linkers and necessary arguments: (dont forget to put comma when you add these)
+         ```"-lSDL2",
+         "-lstdc++", 
+         "-std=gnu++11"```
+
 You can read more detailed information in each of the files here.
