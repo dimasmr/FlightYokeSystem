@@ -67,13 +67,12 @@ public:						// Access specifier, public = can be accessed and modified outside 
 	int IsDevConnected();
 	int GetDevID();
 
-//private:
+private:
 	// Class important variables! In private for safety! Comment out the above //private: for debugging!
 	DIDEVCAPS caps;			// DIDEVCAPS structure of DirectInput https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee416607(v=vs.85)
 	DIJOYSTATE2 state;		// DJOYSTATE structure of DirectInput https://learn.microsoft.com/en-us/previous-versions/windows/desktop/ee416627(v=vs.85)
 	Joysticks theyokes;
 	int joystick_id;
-	int button_num;
 };
 
 // DirectOuput LED IDs

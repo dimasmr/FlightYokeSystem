@@ -38,6 +38,8 @@ int main() {
 	YokeSystem controller(0);	// Instantiate and object/instance with ID as argument
 	//controller.InitDev();
 
+	int button_num = controller.GetButtonNum();	// Get the button number
+
 	while (1) {
 		//bool resp = controller.IsDevConnected();	// Debugging section
 		//std::cout << resp;
@@ -46,9 +48,7 @@ int main() {
 		//std::cout << controller.theyokes.Yoke_devs;	// Should persist
 
 		controller.GetState();	// Get device's state
-		controller.GetCaps();	// Get device's capabilities
-		int button_num = controller.GetButtonNum();	// Get the button number
-
+		
 		axes[0] = controller.Steer();	// Axes
 		axes[1] = controller.Nose();
 		axes[2] = controller.BlackClutch();
@@ -84,6 +84,15 @@ int main() {
 					break;
 				case 7:
 					printf("Steer button %1d (C2). ", i + 1);
+					break;
+				case 11:
+					printf("FUNCTION %1d. ", i + 1);
+					break;
+				case 12:
+					printf("START/STOP %1d. ", i + 1);
+					break;
+				case 13:
+					printf("RESET %1d. ", i + 1);
 					break;
 				case 14:
 					printf("Clutch toggle %1d (T1/left up). ", i + 1);
